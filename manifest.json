@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "营销黑话词典 · 悬浮球",
+  "version": "1.0.0",
+  "description": "任意网页右下角常驻悬浮球：秒查广告投放、营销指标、内容种草与职场黑话；没收录的词一键问 AI，并收进自己的词典。",
+  "permissions": ["storage", "scripting", "activeTab"],
+  "optional_host_permissions": ["https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["data/terms.js", "content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_title": "营销黑话词典（点击唤出 / 收起）"
+  },
+  "options_page": "options.html"
+}

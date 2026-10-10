@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>营销黑话词典 · 设置</title>
+  <style>
+    body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;max-width:640px;margin:40px auto;padding:0 20px;color:#1d2129;}
+    h1{font-size:20px;} h2{font-size:15px;margin-top:32px;border-top:1px solid #eee;padding-top:20px;}
+    label{display:block;margin:14px 0 4px;font-size:13px;color:#4e5969;}
+    input{width:100%;padding:8px 10px;border:1px solid #ddd;border-radius:8px;font-size:14px;box-sizing:border-box;}
+    input:focus{outline:none;border-color:#ff2442;}
+    .hint{font-size:12px;color:#86909c;margin-top:4px;line-height:1.6;}
+    .row{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;}
+    button{border:0;border-radius:8px;padding:8px 16px;background:#ff2442;color:#fff;font-size:13px;cursor:pointer;}
+    button.ghost{background:#f2f3f5;color:#4e5969;}
+    #msg{margin-top:12px;font-size:13px;white-space:pre-wrap;line-height:1.6;}
+    .ok{color:#00a870;} .bad{color:#f53f3f;}
+    table{border-collapse:collapse;font-size:12px;margin-top:8px;}
+    td{border:1px solid #eee;padding:4px 8px;}
+  </style>
+</head>
+<body>
+  <h1>💬 营销黑话词典 · 设置</h1>
+
+  <h2>🤖 AI 查词接口</h2>
+  <div class="hint">支持任意兼容 OpenAI 格式的接口。Key 只保存在你本机浏览器里，不会上传到任何其他地方。</div>
+  <table>
+    <tr><td>DeepSeek</td><td>https://api.deepseek.com/v1</td><td>deepseek-chat</td></tr>
+    <tr><td>通义千问</td><td>https://dashscope.aliyuncs.com/compatible-mode/v1</td><td>qwen-plus</td></tr>
+    <tr><td>Kimi</td><td>https://api.moonshot.cn/v1</td><td>moonshot-v1-8k</td></tr>
+  </table>
+
+  <label for="apiBase">接口地址（Base URL）</label>
+  <input id="apiBase" placeholder="https://api.deepseek.com/v1" />
+  <label for="model">模型名</label>
+  <input id="model" placeholder="deepseek-chat" />
+  <label for="apiKey">API Key</label>
+  <input id="apiKey" type="password" placeholder="sk-..." />
+  <div class="hint">点击「保存」时浏览器会请求访问该接口域名的权限，选择允许即可。</div>
+
+  <div class="row">
+    <button id="save">保存</button>
+    <button class="ghost" id="test">测试一下（查「种草」）</button>
+  </div>
+
+  <h2>📒 我的词条</h2>
+  <div class="hint" id="count">加载中…</div>
+  <div class="row">
+    <button class="ghost" id="export">导出为 JSON</button>
+    <button class="ghost" id="clear">清空我的词条</button>
+  </div>
+
+  <div id="msg"></div>
+  <script src="options.js"></script>
+</body>
+</html>
